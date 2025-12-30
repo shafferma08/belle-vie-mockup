@@ -357,7 +357,7 @@ header nav {
 .hero-content {
     max-width: 900px;
     padding: var(--spacing-md);
-    padding-top: 50px;
+    padding-top: 150px;
     z-index: 10;
 }
 
@@ -1564,6 +1564,17 @@ header.scrolled .logo-sub {
 /* Disable overlay for team cards */
 .gallery-item.team-card .gallery-overlay {
     display: none !important;
+}
+
+/* Disable Hover Scaling for Team Cards */
+.gallery-item.team-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: default;
+}
+
+.gallery-item.team-card:hover .gallery-image {
+    transform: none !important;
 }
 
 /* =================================================================
