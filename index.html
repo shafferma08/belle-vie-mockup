@@ -71,7 +71,12 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">BELLE VIE</a>
+                <a href="index.html" class="logo">
+                    <div class="logo-text-group">
+                        <span class="logo-main">BELLE VIE</span>
+                        <span class="logo-sub">HAIR SPA & WELLNESS</span>
+                    </div>
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">HOME</a></li>
                     <li><a href="hair-spa.html">HAIR SPA</a></li>
@@ -101,15 +106,16 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" style="background: url('assets/img/gallery_nature.webp') no-repeat center center / cover;">
-        <div class="hero-content">
-            <h1>A Sanctuary for Organic Hair & Holistic Wellness.</h1>
-            <p>Experience Tampa’s premier Japanese Head Spa, award-winning organic color, and luxury wellness rituals.
+    <section class="hero" style="background: url('assets/img/hero_spa_candles.png') no-repeat center center / cover;">
+        <div class="hero-content fade-in-section">
+            <h1 class="hero-title">A Sanctuary for Organic<br>Hair & Holistic Wellness.</h1>
+            <p class="hero-subtitle">
+                Experience Tampa’s premier Japanese Head Spa, award-winning organic color, and luxury wellness rituals.
             </p>
             <div class="hero-btns">
                 <a href="https://belleviehairspa.glossgenius.com/services" target="_blank" class="btn">Book Your
                     Experience</a>
-                <a href="hair-spa.html" class="btn btn-outline">Explore Our Services</a>
+                <a href="#services" class="btn btn-outline">Explore Our Services</a>
             </div>
         </div>
         <div class="hero-scroll-indicator scroll-visible">
@@ -118,22 +124,19 @@
         </div>
     </section>
 
-    <!-- Introduction Section -->
-    <section class="intro section-padding text-center fade-in-section">
-        <div class="container text-center">
-            <div class="section-header">
+    <!-- The Experience & Services (Merged Section) -->
+    <section id="services" class="section-padding fade-in-section"
+        style="background-color: var(--color-organic-cream);">
+        <div class="container">
+            <!-- Unified Header -->
+            <div class="section-header text-center" style="max-width: 800px; margin: 0 auto 3rem auto;">
                 <span class="text-accent">The Experience</span>
                 <h2>Organic Hair Care Meets Holistic Wellness</h2>
                 <p>Belle Vie is more than a salon; it is a retreat. We fuse the finest organic haircare with holistic
                     wellness treatments to rejuvenate your spirit and refine your style.</p>
             </div>
-            <a href="our-philosophy.html" class="btn btn-outline">Our Philosophy</a>
-        </div>
-    </section>
 
-    <!-- Service Teasers -->
-    <section class="section-padding fade-in-section" style="background-color: var(--color-white);">
-        <div class="container">
+            <!-- Service Cards -->
             <div class="service-teasers">
                 <!-- Head Spa -->
                 <div class="teaser-card">
@@ -171,6 +174,11 @@
                     <a href="wellness-suites.html" class="btn text-accent"
                         style="margin-top: 1rem; padding: 10px 20px; font-size: 0.8rem;">Explore</a>
                 </div>
+            </div>
+
+            <!-- Trailing Action -->
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="our-philosophy.html" class="btn btn-outline">Read Our Philosophy</a>
             </div>
         </div>
     </section>
@@ -254,7 +262,7 @@
                     environment, we invite you to pause, breathe, and be renewed.
                 </p>
             </div>
-            <a href="our-philosophy.html" class="btn">Read Our Story</a>
+            <a href="contact.html" class="btn">Plan Your Visit</a>
         </div>
     </section>
 

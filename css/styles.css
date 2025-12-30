@@ -496,14 +496,19 @@ header nav {
     padding: var(--spacing-md);
     text-align: center;
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    /* Updated Border: Visible Sage/Grey Mix */
+    border: 1px solid rgba(138, 154, 91, 0.3);
     border-radius: var(--radius-md);
     overflow: hidden;
+    /* Lifted Initial State */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 .teaser-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    /* Stronger Gold Border on Hover */
+    border-color: var(--color-muted-gold);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .teaser-image-container {
@@ -512,6 +517,8 @@ header nav {
     margin: calc(var(--spacing-md) * -1);
     margin-bottom: var(--spacing-md);
     position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Divide image from content */
 }
 
 .teaser-image {
@@ -528,6 +535,13 @@ header nav {
 /* Social Proof */
 .social-proof {
     background-color: var(--color-sage-green);
+    /* Parallax Effect with Texture */
+    background:
+        linear-gradient(rgba(138, 154, 91, 0.9), rgba(124, 141, 81, 0.95)),
+        url('../assets/img/gallery_nature.webp') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+
     color: var(--color-white);
     text-align: center;
     position: relative;
@@ -1413,4 +1427,297 @@ footer {
     background-color: var(--color-sage-green) !important;
     color: var(--color-white) !important;
     box-shadow: 0 4px 10px rgba(138, 154, 91, 0.3);
+}
+
+/* CSS Update for Branded Header and Hero Medallion */
+
+/* Updated Logo Styling */
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center align title and subtitle */
+    line-height: 1.2;
+}
+
+.logo-main {
+    font-family: var(--font-accent);
+    font-size: 2rem;
+    color: var(--color-white);
+    letter-spacing: 4px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+}
+
+.logo-sub {
+    font-family: var(--font-body);
+    /* Use body font for cleanliness */
+    font-size: 0.65rem;
+    color: var(--color-white);
+    /* Match main logo */
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-top: -2px;
+    /* Pull closer to main text */
+    transition: color 0.3s ease;
+}
+
+/* Hover effects inherited from header rules, but ensuring specific targeting */
+header.scrolled .logo-main,
+header.scrolled .logo-sub {
+    color: var(--color-primary-text);
+    text-shadow: none;
+}
+
+.logo:hover .logo-main,
+.logo:hover .logo-sub {
+    color: var(--color-muted-gold);
+}
+
+
+/* Animation Keyframes (if not already defined, defining here safely) */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+align-items: center;
+justify-content: center;
+cursor: pointer;
+z-index: 10;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+opacity: 0.8;
+}
+
+.slider-arrow:hover {
+    background: var(--color-muted-gold);
+    color: var(--color-white);
+    opacity: 1;
+}
+
+.slider-prev {
+    left: -20px;
+}
+
+.slider-next {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .slider-arrow {
+        display: none;
+        /* Hide arrows on mobile/tablet where swipe is intuitive */
+    }
+}
+
+.slider-hint {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--color-muted-gold);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.desktop-only {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+.teaser-card {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* Featured Sage Card Variant - Lighter, Airy Design */
+.card-variant-sage {
+    background: linear-gradient(to bottom, #ffffff 0%, #f4f7f0 100%);
+    /* White to very subtle sage tint */
+    border: 2px solid rgba(138, 154, 91, 0.4);
+    /* Thicker, more visible sage border */
+    border-top: 5px solid var(--color-sage-green);
+    /* Visual color pop */
+    color: var(--color-primary-text);
+    position: relative;
+}
+
+/* Remove the previous dark-mode glow */
+.card-variant-sage::before {
+    display: none;
+}
+
+.card-variant-sage i {
+    color: var(--color-sage-green) !important;
+    text-shadow: none;
+}
+
+.card-variant-sage h3 {
+    color: var(--color-primary-text);
+    margin-bottom: 0.5rem;
+}
+
+.card-variant-sage h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--color-muted-gold);
+    margin: 1rem auto;
+    opacity: 0.6;
+}
+
+.card-variant-sage p {
+    color: var(--color-primary-text);
+    opacity: 0.8;
+}
+
+.card-variant-sage .text-accent {
+    color: var(--color-sage-green) !important;
+    /* Highlight price in brand color */
+    font-weight: 600;
+    text-shadow: none;
+}
+
+.card-variant-sage .btn-outline {
+    border-color: var(--color-sage-green);
+    color: var(--color-sage-green);
+}
+
+.card-variant-sage .btn-outline:hover {
+    background-color: var(--color-sage-green) !important;
+    color: var(--color-white) !important;
+    box-shadow: 0 4px 10px rgba(138, 154, 91, 0.3);
+}
+
+/* CSS Update for Branded Header and Hero Medallion */
+
+/* Updated Logo Styling */
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center align title and subtitle */
+    line-height: 1.2;
+}
+
+.logo-main {
+    font-family: var(--font-accent);
+    font-size: 2rem;
+    color: var(--color-white);
+    letter-spacing: 4px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+}
+
+.logo-sub {
+    font-family: var(--font-body);
+    /* Use body font for cleanliness */
+    font-size: 0.65rem;
+    color: var(--color-white);
+    /* Match main logo */
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-top: -2px;
+    /* Pull closer to main text */
+    transition: color 0.3s ease;
+}
+
+/* Hover effects inherited from header rules, but ensuring specific targeting */
+header.scrolled .logo-main,
+header.scrolled .logo-sub {
+    color: var(--color-primary-text);
+    text-shadow: none;
+}
+
+.logo:hover .logo-main,
+.logo:hover .logo-sub {
+    color: var(--color-muted-gold);
+}
+
+
+/* Animation Keyframes (if not already defined, defining here safely) */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .logo-main {
+        font-size: 1.5rem;
+    }
+
+    .logo-sub {
+        font-size: 0.5rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* Wellness Partners Section */
+.wellness-partners {
+    background-color: var(--color-sage-green);
+    background:
+        linear-gradient(rgba(138, 154, 91, 0.9), rgba(124, 141, 81, 0.95)),
+        url('../assets/img/vibe_serenity.webp') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--color-white);
+    text-align: center;
+    position: relative;
+    padding: var(--spacing-xl) 0;
+}
+
+.wellness-partners .section-header .text-accent {
+    color: var(--color-white);
+    opacity: 0.8;
+}
+
+.wellness-partners .section-header p {
+    color: var(--color-white);
+    opacity: 0.9;
 }
