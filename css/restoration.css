@@ -1,0 +1,107 @@
+/* =================================================================
+   Restored Team Card Styling (Robust)
+   ================================================================= */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.gallery-item.team-card {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.gallery-item.team-card .gallery-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    background-size: cover !important;
+    background-position: center top !important;
+    margin: 0 !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-info {
+    display: block !important;
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: var(--color-white);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+}
+
+.team-info h3 {
+    color: var(--color-primary-text);
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.team-info p {
+    color: var(--color-muted-gold);
+    font-family: var(--font-accent);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Disable overlay for team cards */
+.gallery-item.team-card .gallery-overlay {
+    display: none !important;
+}
+
+/* =================================================================
+   Standardized Parallax Brand Sections
+   ================================================================= */
+.parallax-brand-section {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+/* Ensure text readability regardless of background */
+.parallax-brand-section .section-header .text-accent {
+    color: var(--color-white) !important;
+    opacity: 0.9;
+}
+
+.parallax-brand-section h2 {
+    color: var(--color-white) !important;
+    margin-bottom: 2rem;
+}
+
+.parallax-brand-section p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Variant: Sage (Wellness Partners, Client Love, Men's Grooming) */
+.parallax-sage {
+    background-image: linear-gradient(rgba(138, 154, 91, 0.9), rgba(124, 141, 81, 0.95));
+}
+
+/* Button overrides for dark/sage backgrounds */
+.parallax-brand-section .btn-outline {
+    border-color: var(--color-white);
+    color: var(--color-white);
+}
+
+.parallax-brand-section .btn-outline:hover {
+    background-color: var(--color-white);
+    color: var(--color-sage-green);
+}
