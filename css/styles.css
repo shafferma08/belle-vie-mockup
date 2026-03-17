@@ -488,8 +488,42 @@ header nav {
 /* Service Teasers */
 .service-teasers {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-md);
+}
+
+@media (max-width: 1100px) {
+    .service-teasers {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .service-teasers {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Homepage 3-card layout */
+.service-teasers-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+    .service-teasers-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Wellness 2-card layout (memberships) */
+.service-teasers-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 600px) {
+    .service-teasers-2 {
+        grid-template-columns: 1fr;
+    }
 }
 
 .teaser-card {
@@ -694,7 +728,8 @@ footer {
 .footer-brand .logo img {
     height: 180px;
     width: auto;
-    border-radius: var(--radius-sm);
+    border-radius: 10px;
+    box-shadow: 0 0 0 1.5px rgba(196, 164, 108, 0.3);
 }
 
 .footer-brand p {
@@ -1483,6 +1518,156 @@ header.scrolled .logo-sub {
     color: var(--color-muted-gold);
 }
 
+/* Dragonfly Icon in Nav */
+.logo-dragonfly {
+    height: 68px;
+    width: 68px;
+    margin-right: 0.85rem;
+    flex-shrink: 0;
+    align-self: center;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 0 0 1.5px rgba(196, 164, 108, 0.3);
+}
+
+.logo:hover .logo-dragonfly {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 2px rgba(196, 164, 108, 0.6);
+}
+
+header.scrolled .logo-dragonfly {
+    box-shadow: 0 0 0 1.5px rgba(196, 164, 108, 0.4);
+}
+
+@media (max-width: 768px) {
+    .logo-dragonfly {
+        height: 54px;
+        width: 54px;
+        margin-right: 0.6rem;
+    }
+}
+
+
+/* =================================================================
+   Flip Cards (Hair Spa service menu)
+   ================================================================= */
+
+/* 2x2 grid for hair-spa page */
+.service-teasers-2x2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+
+@media (max-width: 1024px) {
+    .service-teasers-2x2 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+    min-height: 420px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.flip-card-front {
+    background-color: var(--color-white);
+    border: 1px solid rgba(138, 154, 91, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    z-index: 2;
+}
+
+.flip-card-back {
+    background-color: var(--color-white);
+    border: 1px solid rgba(196, 164, 108, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: rotateY(180deg);
+    z-index: 1;
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+}
+
+.flip-card-back h3 {
+    font-family: var(--font-headline);
+    font-size: 1.4rem;
+    margin: 0.35rem 0 0.75rem;
+    color: var(--color-primary-text);
+}
+
+/* Service list styles */
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.service-list li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(196, 164, 108, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.service-list li:last-child {
+    border-bottom: none;
+}
+
+.service-list li strong {
+    font-family: var(--font-accent);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-primary-text);
+}
+
+.service-list li span {
+    font-size: 0.8rem;
+    color: var(--color-primary-text);
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+    .flip-card {
+        min-height: 380px;
+    }
+
+    .flip-card-inner {
+        min-height: 380px;
+    }
+}
 
 /* Animation Keyframes (if not already defined, defining here safely) */
 @keyframes fadeInUp {

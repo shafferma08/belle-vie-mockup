@@ -301,4 +301,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initGallerySliders();
+
+    // Service Modal – Escape key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModal = document.querySelector('.service-modal.active');
+            if (openModal) {
+                openModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    });
 });
