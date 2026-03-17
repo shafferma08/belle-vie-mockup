@@ -1540,6 +1540,84 @@ header.scrolled .logo-dragonfly {
     box-shadow: 0 0 0 1.5px rgba(196, 164, 108, 0.4);
 }
 
+/* =================================================================
+   Wellness Team Cards
+   ================================================================= */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.team-card {
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-md);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.team-photo-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(138, 154, 91, 0.12), rgba(196, 164, 108, 0.12));
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(138, 154, 91, 0.25);
+}
+
+.team-photo-placeholder i {
+    font-size: 2.5rem;
+    color: rgba(138, 154, 91, 0.4);
+}
+
+.team-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    opacity: 0.75;
+}
+
+.team-card p.text-accent {
+    opacity: 1;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--color-muted-gold) !important;
+}
+
+/* Override parallax white text for team cards */
+.parallax-brand-section .team-card,
+.parallax-brand-section .team-card h4,
+.parallax-brand-section .team-card p {
+    color: #3a3a3a !important;
+}
+
+.parallax-brand-section .team-card p.text-accent {
+    color: #c4a46c !important;
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
 @media (max-width: 768px) {
     .logo-dragonfly {
         height: 54px;
