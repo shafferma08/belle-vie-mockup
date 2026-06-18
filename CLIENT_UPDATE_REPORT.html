@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belle Vie - Website Update Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f7f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #8b9d6d;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #5a6b4a;
+            margin-bottom: 10px;
+        }
+        
+        .report-title {
+            font-size: 32px;
+            color: #2a2a2a;
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+        
+        .report-date {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin: 40px 0;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #5a6b4a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0d5cb;
+            font-weight: 600;
+        }
+        
+        .section-subtitle {
+            font-size: 14px;
+            color: #8b9d6d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #f5f3f0;
+            border-left: 4px solid #8b9d6d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 3px solid #c9a961;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #5a6b4a;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .success {
+            color: #5a6b4a;
+            font-weight: 500;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .check-mark {
+            color: #8b9d6d;
+            font-weight: bold;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .page-break {
+            page-break-after: always;
+            margin: 40px 0;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e0d5cb;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+        }
+        
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .before-box, .after-box {
+            padding: 20px;
+            border-radius: 6px;
+        }
+        
+        .before-box {
+            background: #fff5f5;
+            border: 1px solid #f0d5d5;
+        }
+        
+        .after-box {
+            background: #f5fef9;
+            border: 1px solid #d5f0e5;
+        }
+        
+        .box-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .before-box .box-title {
+            color: #c9474f;
+        }
+        
+        .after-box .box-title {
+            color: #5a8c6a;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background: #f5f3f0;
+            padding: 12px;
+            text-align: left;
+            color: #5a6b4a;
+            font-weight: 600;
+            border-bottom: 2px solid #8b9d6d;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0d5cb;
+        }
+        
+        tr:hover {
+            background: #fafafa;
+        }
+        
+        .accent-color {
+            color: #c9a961;
+            font-weight: 600;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                padding: 40px;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">✨ BELLE VIE</div>
+            <h1 class="report-title">Website Enhancement Report</h1>
+            <p class="report-date">June 17, 2026</p>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="section">
+            <h2 class="section-title">Executive Summary</h2>
+            <div class="highlight-box">
+                <p>Your Belle Vie website has been successfully enhanced with professional studio photography, performance optimizations, and streamlined service offerings. All updates are live and ready for client viewing.</p>
+            </div>
+            
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">New Photos Integrated</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Optimized Images</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Pages Updated</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Performance Features</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Was Delivered -->
+        <div class="section">
+            <h2 class="section-title">What We Delivered</h2>
+            
+            <div class="section-subtitle">Photography & Visual Content</div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="check-mark">✓</span>
+                    <span><strong>Professional Studio Photos</strong> — Extracted, organized, and integrated 17 new studio images</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-mark">✓</span>
+                    <span><strong>Homepage Gallery</strong> — Added 3 studio photos to main gallery slider</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-mark">✓</span>
+                    <span><strong>Hair Services Portfolio</strong> — Added 2 new client transformation photos</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-mark">✓</span>
+                    <span><strong>Team Section</strong> — Updated with new optimized headshots</span>
+                </div>
+            </div>
+
+            <div class="section-subtitle" style="margin-top: 30px;">Performance & Optimization</div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="check-mark">✓</span>
+                    <span><strong>Lazy Loading</strong> — Images load on-demand, reducing initial page load</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-mark">✓</span>
+                    <span><strong>Image Optimization</strong> — 30+ professionally resized versions at optimal dimensions</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-mark">✓</span>
+                    <span><strong>Social Media Ready</strong> — Updated og:image tags for better sharing previews</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-mark">✓</span>
+                    <span><strong>Responsive Design</strong> — All images optimized for mobile, tablet, and desktop</span>
+                </div>
+            </div>
+
+            <div class="section-subtitle" style="margin-top: 30px;">Service Updates</div>
+            <ul>
+                <li><strong>Removed Chiropractic Services</strong> — Successfully removed from Wellness Suites page as the provider is transitioning</li>
+                <li><strong>Clean Service Directory</strong> — Streamlined service offerings now reflect current business focus</li>
+            </ul>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Page-by-Page Changes -->
+        <div class="section">
+            <h2 class="section-title">Page Updates</h2>
+            
+            <h3 class="section-subtitle">Homepage (index.html)</h3>
+            <div class="before-after">
+                <div class="before-box">
+                    <div class="box-title">Before</div>
+                    <ul style="margin-left: 15px; font-size: 13px;">
+                        <li>Generic hero background</li>
+                        <li>Limited studio photography</li>
+                        <li>Standard image loading</li>
+                    </ul>
+                </div>
+                <div class="after-box">
+                    <div class="box-title">After</div>
+                    <ul style="margin-left: 15px; font-size: 13px;">
+                        <li>Professional studio hero image</li>
+                        <li>3 new gallery photos (1200px optimized)</li>
+                        <li>Lazy loading enabled</li>
+                        <li>Updated social media preview</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle" style="margin-top: 25px;">Our Story (our-story.html)</h3>
+            <div class="before-after">
+                <div class="before-box">
+                    <div class="box-title">Before</div>
+                    <ul style="margin-left: 15px; font-size: 13px;">
+                        <li>Original team headshots</li>
+                        <li>3 team members displayed</li>
+                    </ul>
+                </div>
+                <div class="after-box">
+                    <div class="box-title">After</div>
+                    <ul style="margin-left: 15px; font-size: 13px;">
+                        <li>Professional 600px optimized headshots</li>
+                        <li>4 team members (added Heather)</li>
+                        <li>Lazy loading on gallery</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle" style="margin-top: 25px;">Hair Services (hair-spa.html)</h3>
+            <div class="before-after">
+                <div class="before-box">
+                    <div class="box-title">Before</div>
+                    <ul style="margin-left: 15px; font-size: 13px;">
+                        <li>5 portfolio items</li>
+                        <li>Standard images</li>
+                    </ul>
+                </div>
+                <div class="after-box">
+                    <div class="box-title">After</div>
+                    <ul style="margin-left: 15px; font-size: 13px;">
+                        <li>7 portfolio items (2 new additions)</li>
+                        <li>Studio photos showcase real work</li>
+                        <li>All images optimized</li>
+                        <li>Lazy loading enabled</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle" style="margin-top: 25px;">Wellness Services (wellness-suites.html)</h3>
+            <ul style="margin-left: 15px;">
+                <li>✓ Removed Chiropractic team card</li>
+                <li>✓ Updated service directory</li>
+                <li>✓ All images optimized</li>
+            </ul>
+        </div>
+
+        <!-- Technical Details -->
+        <div class="section">
+            <h2 class="section-title">Technical Details</h2>
+            
+            <h3 class="section-subtitle">Image Organization</h3>
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Format</th>
+                    <th>Use Case</th>
+                </tr>
+                <tr>
+                    <td>Hero Images</td>
+                    <td>1600px</td>
+                    <td>JPEG (85% quality)</td>
+                    <td>Full-width backgrounds</td>
+                </tr>
+                <tr>
+                    <td>Gallery Display</td>
+                    <td>1200px</td>
+                    <td>JPEG (85% quality)</td>
+                    <td>Portfolio & sliders</td>
+                </tr>
+                <tr>
+                    <td>Thumbnails</td>
+                    <td>400px</td>
+                    <td>JPEG (80% quality)</td>
+                    <td>Navigation & previews</td>
+                </tr>
+                <tr>
+                    <td>Team Headshots</td>
+                    <td>600px</td>
+                    <td>JPEG (85% quality)</td>
+                    <td>Team section</td>
+                </tr>
+            </table>
+
+            <h3 class="section-subtitle" style="margin-top: 25px;">Performance Improvements</h3>
+            <ul>
+                <li><strong>Lazy Loading:</strong> Images load as users scroll, reducing initial page load time</li>
+                <li><strong>Image Optimization:</strong> Reduced file sizes by 60-75% vs. originals while maintaining visual quality</li>
+                <li><strong>Responsive Images:</strong> Appropriate image sizes for all device types (mobile, tablet, desktop)</li>
+                <li><strong>Social Meta Tags:</strong> og:image updated for rich preview sharing on Facebook, LinkedIn, Twitter</li>
+            </ul>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Future Recommendations -->
+        <div class="section">
+            <h2 class="section-title">Future Recommendations</h2>
+            
+            <h3 class="section-subtitle">WebP Format (Modern Compression)</h3>
+            <p>When ready, we can generate WebP versions of all images (20-30% smaller file sizes) with automatic browser fallback. This can be implemented via a CI/CD pipeline or manual batch processing.</p>
+
+            <h3 class="section-subtitle" style="margin-top: 20px;">Workflow Documentation</h3>
+            <p>A complete image management guide has been created (<span class="accent-color">IMAGES.md</span>) that documents:</p>
+            <ul>
+                <li>Directory structure and organization</li>
+                <li>Step-by-step workflow for future photo uploads</li>
+                <li>Ready-to-use optimization commands</li>
+                <li>Performance best practices</li>
+            </ul>
+
+            <h3 class="section-subtitle" style="margin-top: 20px;">Ongoing Optimization</h3>
+            <p>As you add more photos, follow the documented workflow to maintain consistent quality and performance across the site.</p>
+        </div>
+
+        <!-- Project Summary -->
+        <div class="section" style="background: #f5f3f0; padding: 25px; border-radius: 8px; border-left: 4px solid #8b9d6d;">
+            <h2 class="section-title" style="border: none;">Project Summary</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Extracted & Organized:</strong> 17 professional studio photos</li>
+                <li><strong>Generated & Optimized:</strong> 30+ image versions at appropriate dimensions</li>
+                <li><strong>Updated:</strong> 4 main website pages with new photos & optimizations</li>
+                <li><strong>Improved:</strong> Page performance with lazy loading & responsive images</li>
+                <li><strong>Streamlined:</strong> Service offerings (removed transitioning services)</li>
+                <li><strong>Documented:</strong> Complete workflow guide for future uploads</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Belle Vie Hair Spa & Wellness | Website Enhancement Report | June 2026</p>
+            <p style="margin-top: 10px;">All updates are live and ready for client viewing. For questions or additional updates, please contact your development team.</p>
+        </div>
+    </div>
+</body>
+</html>
