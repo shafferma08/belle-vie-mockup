@@ -23,8 +23,8 @@
     --fs-h3: 1.5rem;
     --fs-h4: 1.25rem;
     --fs-body: 1rem;
-    --fs-small: 0.875rem;
-    --fs-btn: 0.85rem;
+    --fs-small: 0.95rem;
+    --fs-btn: 0.9rem;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -57,8 +57,7 @@
         --fs-h2: 1.75rem;
         --fs-h3: 1.35rem;
         --fs-h4: 1.1rem;
-        --fs-body: 0.95rem;
-        /* Slight reduction for narrow screens */
+        --fs-body: 1rem;
 
         --spacing-md: 1.5rem;
         --spacing-lg: 3rem;
@@ -179,10 +178,11 @@ img {
 
 .section-header .text-accent {
     display: block;
-    color: var(--color-muted-gold);
+    color: #8C6E2C;
+    /* deeper gold — more legible than muted-gold on light backgrounds */
     margin-bottom: 1rem;
     /* Consistent spacing above title */
-    font-size: var(--fs-small);
+    font-size: 0.92rem;
 }
 
 .section-header h2 {
@@ -286,7 +286,8 @@ header.scrolled .hamburger-menu {
 
 .nav-links a.active {
     color: var(--color-muted-gold);
-    border-bottom: 2px solid var(--color-muted-gold);
+    border-bottom: 1px solid var(--color-muted-gold);
+    padding-bottom: 3px;
 }
 
 /* Scroll Progress Bar */
@@ -828,8 +829,8 @@ header nav {
 }
 
 .testimonial-date {
-    font-size: 0.75rem;
-    opacity: 0.7;
+    font-size: 0.85rem;
+    opacity: 0.8;
     margin-top: 0.25rem;
     display: block;
 }
@@ -929,9 +930,9 @@ footer {
 }
 
 .footer-brand p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.8;
-    opacity: 0.8;
+    opacity: 0.85;
     max-width: 300px;
 }
 
@@ -940,7 +941,7 @@ footer {
     font-family: var(--font-accent);
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 0.9rem;
+    font-size: 0.98rem;
     margin-bottom: 2rem;
 }
 
@@ -951,7 +952,7 @@ footer {
 
 .footer-column ul li {
     margin-bottom: 1rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .footer-social-links li a {
@@ -984,8 +985,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.8rem;
-    opacity: 0.6;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 /* Mobile Navigation Overlay */
@@ -1561,7 +1562,7 @@ footer {
 
 .slider-hint {
     text-align: right;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--color-muted-gold);
     margin-bottom: 0.5rem;
     display: flex;
@@ -1920,17 +1921,17 @@ header.scrolled .logo-dragonfly {
 
 .service-list li strong {
     font-family: var(--font-accent);
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--color-primary-text);
 }
 
 .service-list li span {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--color-primary-text);
-    opacity: 0.7;
-    line-height: 1.4;
+    opacity: 0.8;
+    line-height: 1.5;
 }
 
 @media (max-width: 600px) {
@@ -2165,7 +2166,7 @@ header.scrolled .logo-dragonfly {
 }
 .team-card-info .text-accent {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--color-muted-gold);
@@ -2178,10 +2179,10 @@ header.scrolled .logo-dragonfly {
     margin-bottom: 0.6rem;
 }
 .team-card-info p {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     line-height: 1.7;
     color: var(--color-primary-text);
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 @media (max-width: 900px) {
@@ -2192,10 +2193,11 @@ header.scrolled .logo-dragonfly {
         height: 360px;
     }
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .team-card-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 360px;
     }
     .team-group-photo img {
         height: 260px;
@@ -2352,4 +2354,330 @@ header.scrolled .logo-dragonfly {
 .parallax-brand-section .btn-outline:hover {
     background-color: var(--color-white);
     color: var(--color-sage-green);
+}
+
+/* =================================================================
+   Responsive Audit Fixes
+   ================================================================= */
+
+/* 1. background-attachment: fixed is janky / breaks on iOS Safari & most
+   mobile browsers (the image jumps or freezes during scroll). Fall back to
+   normal scrolling on touch-sized screens. */
+@media (max-width: 900px) {
+
+    .social-proof,
+    .parallax-brand-section {
+        background-attachment: scroll;
+    }
+}
+
+/* 2. Inner-page heroes carry a large 150px top padding meant to clear the
+   fixed header on tall desktop heroes. On the shorter mobile hero this pushes
+   the headline too low; trim it so the content stays vertically balanced. */
+@media (max-width: 768px) {
+
+    .hero-content {
+        padding-top: 100px;
+    }
+}
+
+/* 3. The "Best Value" membership card is scaled up 5% via an inline style.
+   Once the grid collapses to one column on mobile, that scale pushes the card
+   past the viewport edge (horizontal clipping). Reset it when stacked. */
+@media (max-width: 600px) {
+
+    .service-teasers-2 .teaser-card {
+        transform: none !important;
+    }
+}
+
+/* 4. Respect users who prefer reduced motion — disable the crossfades,
+   parallax-style transitions, auto-sliders, and smooth scrolling. */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* =================================================================
+   Editorial Cream Hero System  (homepage + inner-page headers)
+   ================================================================= */
+
+/* --- Light header: dark nav text/logo while sitting over a cream hero --- */
+.page-light-hero header:not(.scrolled) {
+    background: transparent;
+}
+
+.page-light-hero header:not(.scrolled) .logo-main,
+.page-light-hero header:not(.scrolled) .logo-sub,
+.page-light-hero header:not(.scrolled) .nav-links a,
+.page-light-hero header:not(.scrolled) .hamburger-menu {
+    color: var(--color-primary-text);
+    text-shadow: none;
+}
+
+.page-light-hero header:not(.scrolled) .nav-links a:hover {
+    color: var(--color-muted-gold);
+}
+
+/* Homepage: at the top, show the wordmark TEXT only (no dragonfly badge) so it
+   doesn't echo the dragonfly in the large hero medallion. The badge returns
+   alongside the wordmark once scrolled (medallion out of view). */
+.is-home header:not(.scrolled) .logo-dragonfly {
+    display: none;
+}
+
+/* --- Shared eyebrow (gold label + hairline rule) --- */
+.hero-editorial .eyebrow {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8C6E2C;
+    /* deeper gold — far more legible on cream than muted-gold */
+    margin-bottom: 1.2rem;
+}
+
+.hero-editorial .eyebrow::after,
+.page-header .eyebrow::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 1px;
+    background: var(--color-muted-gold);
+    opacity: 0.55;
+    margin: 1.1rem auto 0;
+}
+
+/* --- Homepage editorial hero --- */
+.hero-editorial {
+    position: relative;
+    text-align: center;
+    padding: clamp(170px, 22vh, 240px) var(--spacing-md) clamp(40px, 6vh, 70px);
+    background-color: var(--color-organic-cream);
+    background-image:
+        /* sage-tinted glow behind the medallion = depth */
+        radial-gradient(ellipse 60% 50% at 50% 30%,
+            rgba(138, 154, 91, 0.10) 0%,
+            rgba(138, 154, 91, 0) 60%),
+        /* warm-stone vignette to frame the center column */
+        radial-gradient(circle at 50% 18%,
+            rgba(235, 233, 225, 0) 42%,
+            rgba(235, 233, 225, 0.5) 100%),
+        /* fine "linen" texture — two offset hairline grids */
+        repeating-linear-gradient(45deg,
+            rgba(44, 44, 44, 0.018) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(-45deg,
+            rgba(44, 44, 44, 0.018) 0 1px, transparent 1px 7px);
+    background-blend-mode: normal, multiply, multiply, multiply;
+}
+
+/* Soft gold "wing-light" gradients hugging both edges fill the horizontal space */
+.hero-editorial::before,
+.hero-editorial::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 38vw;
+    max-width: 520px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-editorial::before {
+    left: 0;
+    background-image: radial-gradient(circle at 0% 42%,
+        rgba(197, 160, 89, 0.10) 0%, rgba(197, 160, 89, 0) 55%);
+}
+
+.hero-editorial::after {
+    right: 0;
+    background-image: radial-gradient(circle at 100% 42%,
+        rgba(197, 160, 89, 0.10) 0%, rgba(197, 160, 89, 0) 55%);
+}
+
+.hero-editorial-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* Charcoal "pressed seal" medallion — gold logo, high contrast on cream.
+   Interior padding gives the artwork even breathing room on all sides; the
+   #2F2F2F fill matches the logo's own background exactly, so there's no seam. */
+.hero-medallion {
+    width: clamp(200px, 25vw, 320px);
+    height: clamp(200px, 25vw, 320px);
+    margin: 0 auto 2.4rem;
+    border-radius: 50%;
+    background: #2F2F2F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.55),
+        0 0 0 12px var(--color-organic-cream),
+        0 0 0 13px rgba(212, 175, 55, 0.30),
+        0 26px 60px rgba(44, 40, 30, 0.22);
+}
+
+/* Zoom the artwork in to fill the coin (crops the logo's built-in margins),
+   but not so far that the BELLE VIE wordmark clips at the edges. */
+.hero-medallion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 47%;
+    transform: scale(1.1);
+}
+
+.hero-editorial h1 {
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(2.1rem, 4.2vw, 3.3rem);
+    line-height: 1.18;
+    color: var(--color-primary-text);
+    margin-bottom: 1.4rem;
+    text-wrap: balance;
+}
+
+/* Keep phrases from breaking awkwardly (e.g. "Hair & Wellness") */
+.nowrap {
+    white-space: nowrap;
+}
+
+.hero-editorial .hero-lede {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 540px;
+    margin: 0 auto 2.2rem;
+    color: var(--color-primary-text);
+    opacity: 0.8;
+}
+
+.hero-editorial .he-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --- Slim, contained photo band below the hero (never full-bleed) --- */
+.hero-photo-band {
+    max-width: 1200px;
+    margin: clamp(2rem, 4.5vh, 3.5rem) auto 0;
+    padding: 0 var(--spacing-md);
+}
+
+.hero-photo-band-inner {
+    position: relative;
+    height: clamp(260px, 40vh, 430px);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(44, 40, 30, 0.16);
+}
+
+.hero-photo-band .hero-img-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 600px) {
+    .hero-editorial .he-btns {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* --- Inner-page image hero (photo + editorial typography) --- */
+.page-hero {
+    position: relative;
+    text-align: center;
+    padding: clamp(190px, 30vh, 300px) var(--spacing-md) clamp(70px, 12vh, 120px);
+    background-color: var(--color-primary-text);
+    /* fallback while img loads */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Top + bottom scrim keeps the fixed nav and the subhead legible over the photo */
+.page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        /* soft central pool keeps the headline/eyebrow legible over bright photo areas */
+        radial-gradient(ellipse 70% 55% at 50% 56%,
+            rgba(20, 18, 14, 0.40) 0%,
+            rgba(20, 18, 14, 0) 75%),
+        linear-gradient(to bottom,
+            rgba(28, 26, 22, 0.55) 0%,
+            rgba(28, 26, 22, 0.28) 28%,
+            rgba(28, 26, 22, 0.30) 58%,
+            rgba(28, 26, 22, 0.78) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.page-hero .eyebrow {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold-leaf);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+    margin-bottom: 1.2rem;
+}
+
+.page-hero .eyebrow::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--color-gold-leaf);
+    opacity: 0.85;
+    margin: 1.1rem auto 0;
+}
+
+.page-hero h1 {
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.12;
+    color: var(--color-white);
+    margin-bottom: 1.2rem;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.page-hero-sub {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    max-width: 560px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
