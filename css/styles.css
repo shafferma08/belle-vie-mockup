@@ -1842,6 +1842,116 @@ header.scrolled .logo-dragonfly {
 }
 
 /* =================================================================
+   Sanctuary Roster — Team Section (Our Story Page)
+   ================================================================= */
+.team-roster {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.team-member-row {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.team-member-row:last-child {
+    border-bottom: none;
+}
+
+/* Even rows: flip photo to the right */
+.team-member-row:nth-child(even) {
+    grid-template-columns: 1.6fr 1fr;
+}
+
+.team-member-row:nth-child(even) .team-member-photo {
+    order: 2;
+}
+
+.team-member-row:nth-child(even) .team-member-bio {
+    order: 1;
+}
+
+.team-member-photo img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(197, 160, 89, 0.3);
+    display: block;
+}
+
+/* Initials placeholder for missing headshots */
+.team-photo-initials {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(138, 154, 91, 0.12), rgba(197, 160, 89, 0.12));
+    border: 3px solid rgba(197, 160, 89, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-headline);
+    font-size: 2.5rem;
+    color: var(--color-muted-gold);
+    letter-spacing: 3px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+.team-member-bio .text-accent {
+    color: var(--color-muted-gold);
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.team-member-bio h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--color-primary-text);
+}
+
+.team-member-bio p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--color-primary-text);
+    opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+    .team-member-row,
+    .team-member-row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2.5rem 0;
+    }
+
+    .team-member-row:nth-child(even) .team-member-photo,
+    .team-member-row:nth-child(even) .team-member-bio {
+        order: unset;
+    }
+
+    .team-member-photo img,
+    .team-photo-initials {
+        width: 160px;
+        margin: 0 auto;
+    }
+
+    .team-member-bio {
+        text-align: center;
+    }
+
+    .team-member-bio h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* =================================================================
    Standardized Parallax Brand Sections
    ================================================================= */
 .parallax-brand-section {
