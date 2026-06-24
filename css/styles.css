@@ -1691,10 +1691,10 @@ footer {
 .logo-sub {
     font-family: var(--font-body);
     /* Use body font for cleanliness */
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     color: var(--color-white);
     /* Match main logo */
-    letter-spacing: 3px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     opacity: 0.9;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -1955,11 +1955,11 @@ header.scrolled .logo-dragonfly {
 /* Responsive Logo */
 @media (max-width: 768px) {
     .logo-main {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
     .logo-sub {
-        font-size: 0.5rem;
+        font-size: 0.62rem;
         letter-spacing: 2px;
     }
 }
@@ -2429,12 +2429,8 @@ header.scrolled .logo-dragonfly {
     color: var(--color-muted-gold);
 }
 
-/* Homepage: at the top, show the wordmark TEXT only (no dragonfly badge) so it
-   doesn't echo the dragonfly in the large hero medallion. The badge returns
-   alongside the wordmark once scrolled (medallion out of view). */
-.is-home header:not(.scrolled) .logo-dragonfly {
-    display: none;
-}
+/* Nav brand is a text wordmark in every state (the dragonfly emblem lives in the
+   hero medallion + footer, where it's large enough to read). */
 
 /* --- Shared eyebrow (gold label + hairline rule) --- */
 .hero-editorial .eyebrow {
@@ -2518,8 +2514,8 @@ header.scrolled .logo-dragonfly {
    Interior padding gives the artwork even breathing room on all sides; the
    #2F2F2F fill matches the logo's own background exactly, so there's no seam. */
 .hero-medallion {
-    width: clamp(200px, 25vw, 320px);
-    height: clamp(200px, 25vw, 320px);
+    width: clamp(232px, 28vw, 364px);
+    height: clamp(232px, 28vw, 364px);
     margin: 0 auto 2.4rem;
     border-radius: 50%;
     background: #2F2F2F;
@@ -2529,8 +2525,8 @@ header.scrolled .logo-dragonfly {
     overflow: hidden;
     box-shadow:
         0 0 0 1px rgba(212, 175, 55, 0.55),
-        0 0 0 12px var(--color-organic-cream),
-        0 0 0 13px rgba(212, 175, 55, 0.30),
+        0 0 0 7px var(--color-organic-cream),
+        0 0 0 8px rgba(212, 175, 55, 0.30),
         0 26px 60px rgba(44, 40, 30, 0.22);
 }
 
