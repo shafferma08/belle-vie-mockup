@@ -151,24 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let currentGalleryItems = [];
         let currentIndex = 0;
+        let directImages = null; // Used by space masonry: array of {src, caption}
 
         const updateLightbox = (index) => {
             if (currentGalleryItems.length === 0) return;
-
             const item = currentGalleryItems[index];
-
-            // If item ends up undefined (safety check)
             if (!item) return;
-
-            // Check if it's a video item or image item
-            if (item.classList.contains('video-item')) {
-                // For now, if we have video items in grid, we might want to skip or handle differently 
-                // but current constraints suggest mostly images. 
-                // If it's the video iframe, we can't easily show it in this img tag lightbox.
-                // Current philosophy page only has images. 
-                // If clicked, we might just ignore or show nothing. 
-                // Let's assume standard image behavior for now as requested for Philosophy page.
-            }
 
             const img = item.querySelector('.gallery-image');
             if (img) {
@@ -186,83 +174,95 @@ document.addEventListener('DOMContentLoaded', () => {
                     lightboxImg.style.opacity = '1';
                 }, 200);
             }
-
             currentIndex = index;
         };
 
         const openLightbox = (item) => {
-            // Find the parent grid of the clicked item
             const parentGrid = item.closest('.gallery-grid, .gallery-slider');
-            if (!parentGrid) return; // Should be in a grid
-
-            // Get all items ONLY in this grid
-            // Filter out video items if they shouldn't appear in lightbox image slider
+            if (!parentGrid) return;
             currentGalleryItems = Array.from(parentGrid.querySelectorAll('.gallery-item:not(.video-item)'));
-
-            // Find index of clicked item
             currentIndex = currentGalleryItems.indexOf(item);
-
-            if (currentIndex === -1) return; // Clicked item not found (?)
-
+            if (currentIndex === -1) return;
+            directImages = null;
             updateLightbox(currentIndex);
             lightbox.classList.add('active');
             body.style.overflow = 'hidden';
         };
 
         // Attach click events to all gallery items
-        // We use delegation or just attach to all current ones
         const allItems = document.querySelectorAll('.gallery-item:not(.video-item)');
         allItems.forEach(item => {
-            item.addEventListener('click', () => {
-                openLightbox(item);
-            });
+            item.addEventListener('click', () => openLightbox(item));
         });
 
+        // ── Space masonry lightbox ──────────────────────────────
+        const spaceItems = document.querySelectorAll('.space-masonry .space-item');
+        const spaceImageData = Array.from(spaceItems).map(item => ({
+            src: item.querySelector('img') ? item.querySelector('img').src : '',
+            caption: item.getAttribute('data-caption') || ''
+        }));
+
+        const showDirectImage = (index) => {
+            if (!directImages || index < 0 || index >= directImages.length) return;
+            currentIndex = index;
+            const data = directImages[currentIndex];
+            lightboxImg.style.opacity = '0';
+            setTimeout(() => {
+                lightboxImg.src = data.src;
+                lightboxCap.textContent = data.caption;
+                lightboxCounter.textContent = `${currentIndex + 1} / ${directImages.length}`;
+                lightboxImg.style.opacity = '1';
+            }, 150);
+        };
+
+        spaceItems.forEach((item, i) => {
+            item.addEventListener('click', () => {
+                directImages = spaceImageData;
+                currentGalleryItems = [];
+                lightboxImg.style.opacity = '0';
+                lightbox.classList.add('active');
+                body.style.overflow = 'hidden';
+                showDirectImage(i);
+            });
+        });
+        // ── End space masonry ────────────────────────────────────
+
         const nextImage = () => {
+            if (directImages) {
+                showDirectImage((currentIndex + 1) % directImages.length);
+                return;
+            }
             if (currentGalleryItems.length === 0) return;
-            let next = (currentIndex + 1) % currentGalleryItems.length;
-            updateLightbox(next);
+            updateLightbox((currentIndex + 1) % currentGalleryItems.length);
         };
 
         const prevImage = () => {
+            if (directImages) {
+                showDirectImage((currentIndex - 1 + directImages.length) % directImages.length);
+                return;
+            }
             if (currentGalleryItems.length === 0) return;
-            let prev = (currentIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
-            updateLightbox(prev);
+            updateLightbox((currentIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length);
         };
 
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            nextImage();
-        });
-
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            prevImage();
-        });
-
-        lightboxImg.addEventListener('click', (e) => {
-            e.stopPropagation();
-            nextImage();
-        });
+        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+        lightboxImg.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
 
         const closeLightbox = () => {
             lightbox.classList.remove('active');
             body.style.overflow = 'auto';
-            lightboxImg.src = ''; // Clear source
+            lightboxImg.src = '';
+            directImages = null;
         };
 
         lightboxClose.addEventListener('click', closeLightbox);
-
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox || e.target.classList.contains('lightbox-nav')) {
-                if (e.target === lightbox) closeLightbox();
-            }
+            if (e.target === lightbox) closeLightbox();
         });
 
-        // Keyboard Support
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
-
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
