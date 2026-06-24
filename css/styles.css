@@ -73,6 +73,8 @@
 
 html {
     scroll-behavior: smooth;
+    /* Offset in-page anchor jumps so the target isn't hidden under the fixed header */
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -2431,6 +2433,43 @@ header.scrolled .logo-dragonfly {
 
 /* Nav brand is a text wordmark in every state (the dragonfly emblem lives in the
    hero medallion + footer, where it's large enough to read). */
+
+/* --- Mobile sticky Call-to-Book bar --- */
+.mobile-call-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-call-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 900;
+        /* below the mobile nav overlay (1000) so it hides when the menu opens */
+        background: var(--color-muted-gold);
+        color: var(--color-white);
+        font-family: var(--font-accent);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.95rem;
+        padding: 0.95rem;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .mobile-call-bar i {
+        font-size: 0.9rem;
+    }
+
+    /* keep the footer/legal text clear of the fixed bar */
+    body {
+        padding-bottom: 54px;
+    }
+}
 
 /* --- Shared eyebrow (gold label + hairline rule) --- */
 .hero-editorial .eyebrow {

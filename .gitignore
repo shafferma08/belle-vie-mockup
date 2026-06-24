@@ -1,2 +1,5 @@
 .claude/
 .DS_Storeassets/img/uploaded/
+
+# Large master originals — kept locally, excluded from repo/deploy
+assets/img/gallery/
