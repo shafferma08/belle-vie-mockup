@@ -271,6 +271,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initLightbox();
 
+    // Hero right-panel image crossfade slider
+    const heroImgSlides = document.querySelectorAll('.hero-img-slide');
+    if (heroImgSlides.length > 1) {
+        let heroIdx = 0;
+        setInterval(() => {
+            heroImgSlides[heroIdx].classList.remove('is-active');
+            heroIdx = (heroIdx + 1) % heroImgSlides.length;
+            heroImgSlides[heroIdx].classList.add('is-active');
+        }, 6000); // Switch every 6 seconds
+    }
+
     // Gallery Slider Navigation Logic
     const initGallerySliders = () => {
         const sliders = document.querySelectorAll('.gallery-slider-wrapper');
