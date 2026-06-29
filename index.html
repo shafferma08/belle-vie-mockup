@@ -64,7 +64,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="page-light-hero is-home">
+<body>
     <div class="scroll-progress"></div>
 
     <!-- Header -->
@@ -105,9 +105,9 @@
         </ul>
     </div>
 
-    <!-- Hero Section — Editorial Cream -->
-    <section class="hero-editorial">
-        <div class="hero-editorial-inner">
+    <!-- Hero — immersive full-bleed -->
+    <section class="home-hero" style="background-image: url('assets/img/vibe_serenity.webp');">
+        <div class="home-hero-inner">
             <div class="hero-medallion">
                 <img src="assets/img/logo/belle-vie-logo.jpg"
                      alt="Belle Vie Hair Spa — gold dragonfly emblem">
@@ -117,90 +117,81 @@
             <p class="hero-lede">Where beauty is rooted in nature—and nurtured by faith.</p>
             <div class="he-btns">
                 <a href="tel:8133696779" class="btn">Call to Book</a>
-                <a href="#services" class="btn btn-outline">Explore Services</a>
+                <a href="#experience" class="btn btn-outline">Explore Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Contained photo band -->
-    <div class="hero-photo-band">
-        <div class="hero-photo-band-inner">
-            <div class="hero-img-slide is-active">
-                <img src="assets/img/optimized/gallery/BE032026-184-1200.jpg"
-                     alt="Belle Vie lobby — sculptural botanical wall and dragonfly welcome sign">
-            </div>
-            <div class="hero-img-slide">
-                <img src="assets/img/optimized/gallery/BE032026-7-1200.jpg"
-                     alt="Belle Vie wellness center interior">
-            </div>
-            <div class="hero-img-slide">
-                <img src="assets/img/optimized/gallery/BE032026-193-1200.jpg"
-                     alt="Belle Vie organic color bar">
-            </div>
-        </div>
-    </div>
-
-    <!-- The Experience & Services (Merged Section) -->
-    <section id="services" class="section-padding fade-in-section"
-        style="background-color: var(--color-organic-cream);">
+    <!-- Welcome / brand moment -->
+    <section class="welcome section-padding fade-in-section">
         <div class="container">
-            <!-- Unified Header -->
-            <div class="section-header text-center" style="max-width: 800px; margin: 0 auto 3rem auto;">
+            <span class="eyebrow">Welcome to Belle Vie</span>
+            <h2>More Than a Salon — a Retreat</h2>
+            <p>We fuse the finest organic hair care with holistic wellness rituals to rejuvenate your
+                spirit and refine your style. Every detail is designed to bring you peace, restoration,
+                and a little more beauty.</p>
+            <div class="welcome-divider"></div>
+        </div>
+    </section>
+
+    <!-- The Experience — alternating feature rows -->
+    <section id="experience" class="section-padding fade-in-section"
+        style="background-color: var(--color-warm-stone);">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: clamp(2.5rem, 5vw, 4rem);">
                 <span class="text-accent">The Experience</span>
                 <h2>Organic Hair Care Meets Holistic Wellness</h2>
-                <p>Belle Vie is more than a salon; it is a retreat. We fuse the finest organic haircare with holistic
-                    wellness treatments to rejuvenate your spirit and refine your style.</p>
             </div>
 
-            <!-- Service Cards -->
-            <div class="service-teasers service-teasers-3">
+            <div class="feature-rows">
                 <!-- Head Spa -->
-                <div class="teaser-card">
-                    <div class="teaser-image-container">
-                        <div class="teaser-image" role="img" aria-label="Signature Head Spa relaxing water ritual"
-                            style="background: url('assets/img/head-spa-hero-updated.jpg') no-repeat center center / cover;">
-                        </div>
+                <div class="feature-row fade-in-section">
+                    <div class="feature-img" role="img" aria-label="Private head spa treatment room"
+                        style="background-image: url('assets/img/optimized/gallery/BE032026-196-1200.jpg');"></div>
+                    <div class="feature-text">
+                        <span class="eyebrow">The Head Spa</span>
+                        <h3>Signature Scalp Rituals</h3>
+                        <p>Drift into pure relaxation with our signature head spa — a personalized scalp analysis,
+                            warm steam, halo therapy, and organic oils to restore your foundation and quiet the mind.</p>
+                        <a href="hair-spa.html" class="btn btn-outline">Discover the Head Spa</a>
                     </div>
-                    <h3>The Head Spa</h3>
-                    <p>Drift into pure relaxation with our signature scalp treatments.</p>
-                    <a href="hair-spa.html" class="btn text-accent"
-                        style="margin-top: 1rem; padding: 10px 20px; font-size: 0.8rem;">Discover</a>
                 </div>
+
                 <!-- The Salon -->
-                <div class="teaser-card">
-                    <div class="teaser-image-container">
-                        <div class="teaser-image" role="img" aria-label="Areté organic hair care product setup"
-                            style="background: url('assets/img/optimized/gallery/BE032026-193-1200.jpg') no-repeat center center / cover;">
-                        </div>
+                <div class="feature-row fade-in-section">
+                    <div class="feature-img" role="img" aria-label="Areté organic color bar"
+                        style="background-image: url('assets/img/optimized/gallery/BE032026-193-1200.jpg');"></div>
+                    <div class="feature-text">
+                        <span class="eyebrow">The Salon</span>
+                        <h3>Organic Color &amp; Precision Cuts</h3>
+                        <p>Expert cuts and ammonia-free Areté organic color, tailored to your unique beauty —
+                            vibrant, dimensional results that nourish your hair while they transform it.</p>
+                        <a href="hair-spa.html#services-menu" class="btn btn-outline">Explore the Salon</a>
                     </div>
-                    <h3>The Salon</h3>
-                    <p>Expert cuts and organic color tailored to your unique beauty.</p>
-                    <a href="hair-spa.html#services-menu" class="btn text-accent"
-                        style="margin-top: 1rem; padding: 10px 20px; font-size: 0.8rem;">Details</a>
                 </div>
+
                 <!-- Wellness -->
-                <div class="teaser-card">
-                    <div class="teaser-image-container">
-                        <div class="teaser-image" role="img" aria-label="Full-spectrum infrared sauna interior"
-                            style="background: url('assets/img/optimized/gallery/BE032026-218-1200.jpg') no-repeat center top / cover;">
-                        </div>
+                <div class="feature-row fade-in-section">
+                    <div class="feature-img" role="img" aria-label="Full-spectrum infrared sauna"
+                        style="background-image: url('assets/img/optimized/gallery/BE032026-218-1200.jpg');"></div>
+                    <div class="feature-text">
+                        <span class="eyebrow">Wellness</span>
+                        <h3>Infrared Sauna &amp; Cold Plunge</h3>
+                        <p>Reclaim your vitality through contrast therapy. Full-spectrum infrared heat and an
+                            invigorating cold plunge work together to detoxify, restore, and renew.</p>
+                        <a href="wellness-suites.html" class="btn btn-outline">Explore Wellness</a>
                     </div>
-                    <h3>Wellness</h3>
-                    <p>Infrared saunas and cold plunges to invigorate your body.</p>
-                    <a href="wellness-suites.html" class="btn text-accent"
-                        style="margin-top: 1rem; padding: 10px 20px; font-size: 0.8rem;">Explore</a>
                 </div>
             </div>
 
-            <!-- Trailing Action -->
-            <div class="text-center" style="margin-top: 3rem;">
+            <div class="text-center" style="margin-top: clamp(3rem, 6vw, 4.5rem);">
                 <a href="our-story.html" class="btn btn-outline">Read Our Story</a>
             </div>
         </div>
     </section>
 
     <!-- The Space (Gallery) -->
-    <section class="section-padding fade-in-section" style="background-color: var(--color-warm-stone);">
+    <section class="section-padding fade-in-section" style="background-color: var(--color-organic-cream);">
         <div class="container">
             <div class="section-header">
                 <span class="text-accent">Sanctuary</span>
@@ -235,21 +226,17 @@
                     <img src="assets/img/optimized/gallery/BE032026-210-1200.jpg"
                         alt="Cold plunge contrast therapy tub" loading="lazy">
                 </div>
-                <div class="space-item" data-caption="Belle Vie Wellness Center">
-                    <img src="assets/img/optimized/gallery/BE032026-7-1200.jpg"
-                        alt="Belle Vie Wellness Center exterior sign" loading="lazy">
-                </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Social Proof -->
-    <section class="social-proof section-padding fade-in-section parallax-brand-section parallax-sage"
-        style="background-image: linear-gradient(rgba(138, 154, 91, 0.9), rgba(124, 141, 81, 0.95)), url('assets/img/vibe_serenity.webp');">
+    <!-- Testimonials — light refined band -->
+    <section class="testimonial-light section-padding fade-in-section"
+        style="background-color: var(--color-warm-stone);">
         <div class="container">
-            <p class="text-accent" style="margin-bottom: 1rem;">Testimonials</p>
-            <h2 style="margin-bottom: 3rem;">Client Love</h2>
+            <span class="eyebrow">Testimonials</span>
+            <h2>Client Love</h2>
             <div class="testimonial-slider-container">
                 <button class="slider-arrow prev-arrow" aria-label="Previous Testimonial">
                     <i class="fas fa-chevron-left"></i>
@@ -322,6 +309,17 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="cta-band section-padding fade-in-section"
+        style="background-image: url('assets/img/optimized/gallery/BE032026-2-1200.jpg');">
+        <div class="container">
+            <span class="eyebrow">Westchase · Tampa</span>
+            <h2>Come As You Are. Leave Renewed.</h2>
+            <p>Step into your sanctuary for organic hair care and holistic wellness.</p>
+            <a href="tel:8133696779" class="btn">Call to Book</a>
         </div>
     </section>
 

@@ -2434,6 +2434,387 @@ header.scrolled .logo-dragonfly {
 /* Nav brand is a text wordmark in every state (the dragonfly emblem lives in the
    hero medallion + footer, where it's large enough to read). */
 
+/* =================================================================
+   Homepage v2 — Editorial / immersive
+   ================================================================= */
+
+/* Immersive full-bleed hero */
+.home-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    background-color: var(--color-primary-text);
+    background-size: cover;
+    background-position: center;
+}
+
+.home-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 90% 70% at 50% 45%, rgba(18, 14, 10, 0.18), rgba(18, 14, 10, 0) 72%),
+        linear-gradient(to bottom,
+            rgba(18, 14, 10, 0.58) 0%,
+            rgba(18, 14, 10, 0.30) 32%,
+            rgba(18, 14, 10, 0.42) 72%,
+            rgba(18, 14, 10, 0.72) 100%);
+    z-index: 1;
+}
+
+.home-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    padding: 130px var(--spacing-md) 90px;
+}
+
+.home-hero .eyebrow {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold-leaf);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
+
+.home-hero .eyebrow::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 1px;
+    background: var(--color-gold-leaf);
+    opacity: 0.85;
+    margin: 1.3rem auto 0;
+}
+
+.home-hero h1 {
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 5.6vw, 4.4rem);
+    line-height: 1.1;
+    color: var(--color-white);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.45);
+    text-wrap: balance;
+}
+
+.home-hero .hero-lede {
+    font-size: 1.12rem;
+    line-height: 1.85;
+    max-width: 540px;
+    margin: 0 auto 2.4rem;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 16px rgba(0, 0, 0, 0.5);
+}
+
+.home-hero .he-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.home-hero .btn-outline {
+    border-color: var(--color-white);
+    color: var(--color-white);
+}
+
+.home-hero .btn-outline:hover {
+    background-color: var(--color-white) !important;
+    color: var(--color-primary-text) !important;
+}
+
+@media (max-width: 600px) {
+    .home-hero .he-btns {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Dragonfly seal sits over the hero photo (its cream ring reads against the photo) */
+.home-hero .hero-medallion {
+    width: clamp(120px, 15vw, 170px);
+    height: clamp(120px, 15vw, 170px);
+    margin: 0 auto 1.9rem;
+}
+
+/* Welcome / brand moment */
+.welcome {
+    background: var(--color-organic-cream);
+    text-align: center;
+}
+
+.welcome .container {
+    max-width: 740px;
+}
+
+.welcome .hero-medallion {
+    width: clamp(150px, 18vw, 200px);
+    height: clamp(150px, 18vw, 200px);
+    margin-bottom: 2rem;
+}
+
+.welcome .eyebrow {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8C6E2C;
+    margin-bottom: 1.2rem;
+}
+
+.welcome h2 {
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    margin-bottom: 1.4rem;
+}
+
+.welcome p {
+    font-size: 1.08rem;
+    line-height: 1.9;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.welcome .welcome-divider {
+    width: 42px;
+    height: 1px;
+    background: var(--color-muted-gold);
+    opacity: 0.6;
+    margin: 2.2rem auto 0;
+}
+
+/* Alternating feature rows */
+.feature-rows {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 6vw, 5.5rem);
+}
+
+.feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+}
+
+.feature-img {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 24px 55px rgba(44, 40, 30, 0.16);
+    background-size: cover;
+    background-position: center;
+}
+
+.feature-row:nth-child(even) .feature-img {
+    order: 2;
+}
+
+.feature-text .eyebrow {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8C6E2C;
+    margin-bottom: 1rem;
+}
+
+.feature-text h3 {
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    margin-bottom: 1.1rem;
+}
+
+.feature-text p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    opacity: 0.85;
+    margin-bottom: 1.8rem;
+}
+
+@media (max-width: 768px) {
+
+    .feature-row,
+    .feature-row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-row:nth-child(even) .feature-img,
+    .feature-img {
+        order: 0;
+    }
+
+    .feature-text {
+        text-align: center;
+    }
+}
+
+/* The Space — clean uniform grid (overrides the old masonry columns) */
+.space-masonry {
+    columns: auto;
+    column-gap: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    max-width: 1100px;
+    margin: 2.5rem auto 0;
+}
+
+.space-masonry .space-item {
+    margin: 0;
+    aspect-ratio: 1 / 1;
+}
+
+.space-masonry .space-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 760px) {
+    .space-masonry {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 440px) {
+    .space-masonry {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Testimonials — full-bleed photo + scrim */
+.testimonial-band {
+    position: relative;
+    background-color: var(--color-primary-text);
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.testimonial-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(20, 16, 12, 0.74), rgba(22, 18, 13, 0.82));
+    z-index: 0;
+}
+
+.testimonial-band .container {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-band .eyebrow {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold-leaf);
+    margin-bottom: 1rem;
+}
+
+.testimonial-band h2 {
+    color: var(--color-white);
+    margin-bottom: 3rem;
+}
+
+/* Testimonials — light refined band (distinct from the dark CTA below it) */
+.testimonial-light {
+    background: var(--color-warm-stone);
+    color: var(--color-primary-text);
+    text-align: center;
+}
+
+.testimonial-light .eyebrow {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8C6E2C;
+    margin-bottom: 1rem;
+}
+
+.testimonial-light h2 {
+    color: var(--color-primary-text);
+    margin-bottom: 3rem;
+}
+
+.testimonial-light .dot {
+    background-color: rgba(44, 44, 44, 0.22);
+}
+
+.testimonial-light .dot.active {
+    background-color: var(--color-muted-gold);
+}
+
+/* Closing CTA band */
+.cta-band {
+    position: relative;
+    background-color: var(--color-primary-text);
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.cta-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(18, 14, 10, 0.55), rgba(18, 14, 10, 0.70));
+    z-index: 0;
+}
+
+.cta-band .container {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.cta-band .eyebrow {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold-leaf);
+    margin-bottom: 1rem;
+}
+
+.cta-band h2 {
+    color: var(--color-white);
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    margin-bottom: 1.2rem;
+}
+
+.cta-band p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.08rem;
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+}
+
 /* --- Mobile sticky Call-to-Book bar --- */
 .mobile-call-bar {
     display: none;
