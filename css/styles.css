@@ -168,7 +168,15 @@ img {
 }
 
 .section-padding {
-    padding: var(--spacing-xl) 0;
+    padding: clamp(4.5rem, 8vw, 6.5rem) 0;
+}
+
+.section-padding .container {
+    background: rgba(255, 255, 255, 0.52);
+    border: 1px solid rgba(44, 44, 44, 0.06);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.35rem, 3vw, 2.2rem);
+    box-shadow: 0 16px 40px rgba(44, 40, 30, 0.06);
 }
 
 /* Standard Section Header */
@@ -1082,6 +1090,30 @@ footer {
 
 .mobile-nav-links a:hover {
     color: var(--color-muted-gold);
+}
+
+.mobile-nav-cta-wrap {
+    margin-top: 1.4rem;
+}
+
+.mobile-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    background: var(--color-muted-gold);
+    color: var(--color-white) !important;
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 25px rgba(44, 40, 30, 0.12);
+}
+
+.mobile-nav-cta:hover {
+    background: var(--color-sage-green);
+    color: var(--color-white) !important;
 }
 
 /* Hamburger Animation State Removed for Font Awesome Icon Toggling */
@@ -2540,9 +2572,10 @@ header.scrolled .logo-dragonfly {
 
 /* Dragonfly seal sits over the hero photo (its cream ring reads against the photo) */
 .home-hero .hero-medallion {
-    width: clamp(120px, 15vw, 170px);
-    height: clamp(120px, 15vw, 170px);
-    margin: 0 auto 1.9rem;
+    width: clamp(280px, 34vw, 420px);
+    height: clamp(280px, 34vw, 420px);
+    margin: 0 auto 2rem;
+    padding: clamp(16px, 2.2vw, 24px);
 }
 
 /* Welcome / brand moment */
@@ -2606,6 +2639,11 @@ header.scrolled .logo-dragonfly {
     grid-template-columns: 1fr 1fr;
     gap: clamp(2rem, 5vw, 4.5rem);
     align-items: center;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(44, 44, 44, 0.06);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    box-shadow: 0 16px 40px rgba(44, 40, 30, 0.06);
 }
 
 .feature-img {
@@ -2642,7 +2680,28 @@ header.scrolled .logo-dragonfly {
     font-size: 1.05rem;
     line-height: 1.85;
     opacity: 0.85;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.1rem;
+}
+
+.feature-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.35rem;
+}
+
+.feature-highlights li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(138, 154, 91, 0.12);
+    color: var(--color-primary-text);
+    font-family: var(--font-accent);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
@@ -2815,43 +2874,6 @@ header.scrolled .logo-dragonfly {
     margin: 0 auto 2rem;
 }
 
-/* --- Mobile sticky Call-to-Book bar --- */
-.mobile-call-bar {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .mobile-call-bar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.6rem;
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 900;
-        /* below the mobile nav overlay (1000) so it hides when the menu opens */
-        background: var(--color-muted-gold);
-        color: var(--color-white);
-        font-family: var(--font-accent);
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-size: 0.95rem;
-        padding: 0.95rem;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .mobile-call-bar i {
-        font-size: 0.9rem;
-    }
-
-    /* keep the footer/legal text clear of the fixed bar */
-    body {
-        padding-bottom: 54px;
-    }
-}
-
 /* --- Shared eyebrow (gold label + hairline rule) --- */
 .hero-editorial .eyebrow {
     display: block;
@@ -2926,28 +2948,30 @@ header.scrolled .logo-dragonfly {
 .hero-editorial-inner {
     position: relative;
     z-index: 1;
-    max-width: 760px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 /* Charcoal "pressed seal" medallion — gold logo, high contrast on cream.
-   Interior padding gives the artwork even breathing room on all sides; the
+   Interior padding gives the artwork more breathing room on all sides; the
    #2F2F2F fill matches the logo's own background exactly, so there's no seam. */
 .hero-medallion {
-    width: clamp(232px, 28vw, 364px);
-    height: clamp(232px, 28vw, 364px);
+    width: clamp(280px, 34vw, 420px);
+    height: clamp(280px, 34vw, 420px);
     margin: 0 auto 2.4rem;
+    padding: clamp(16px, 2.2vw, 24px);
     border-radius: 50%;
     background: #2F2F2F;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    box-sizing: border-box;
     box-shadow:
-        0 0 0 1px rgba(212, 175, 55, 0.55),
-        0 0 0 7px var(--color-organic-cream),
-        0 0 0 8px rgba(212, 175, 55, 0.30),
-        0 26px 60px rgba(44, 40, 30, 0.22);
+        0 0 0 1px rgba(212, 175, 55, 0.45),
+        0 0 0 4px var(--color-organic-cream),
+        0 0 0 5px rgba(212, 175, 55, 0.18),
+        0 22px 48px rgba(44, 40, 30, 0.18);
 }
 
 /* Zoom the artwork in to fill the coin (crops the logo's built-in margins),
@@ -2957,7 +2981,7 @@ header.scrolled .logo-dragonfly {
     height: 100%;
     object-fit: cover;
     object-position: center 47%;
-    transform: scale(1.1);
+    transform: scale(1.06);
 }
 
 .hero-editorial h1 {
@@ -2979,7 +3003,7 @@ header.scrolled .logo-dragonfly {
     font-size: 1.05rem;
     line-height: 1.8;
     max-width: 540px;
-    margin: 0 auto 2.2rem;
+    margin: 0 auto 1.2rem;
     color: var(--color-primary-text);
     opacity: 0.8;
 }
