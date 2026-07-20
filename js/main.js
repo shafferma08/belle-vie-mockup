@@ -197,7 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // ── Space masonry lightbox ──────────────────────────────
         const spaceItems = document.querySelectorAll('.space-masonry .space-item');
-        const spaceImageData = Array.from(spaceItems).map(item => ({
+        const visibleSpaceItems = () =>
+            Array.from(spaceItems).filter(item => !item.classList.contains('is-hidden'));
+        const spaceDataFrom = items => items.map(item => ({
             src: item.querySelector('img') ? item.querySelector('img').src : '',
             caption: item.getAttribute('data-caption') || ''
         }));
@@ -215,16 +217,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 150);
         };
 
-        spaceItems.forEach((item, i) => {
+        spaceItems.forEach(item => {
             item.addEventListener('click', () => {
-                directImages = spaceImageData;
+                const visible = visibleSpaceItems();
+                directImages = spaceDataFrom(visible);
                 currentGalleryItems = [];
                 lightboxImg.style.opacity = '0';
                 lightbox.classList.add('active');
                 body.style.overflow = 'hidden';
-                showDirectImage(i);
+                showDirectImage(visible.indexOf(item));
             });
         });
+
+        // ── "Load More" reveal (batches of 6) ────────────────────
+        const spaceLoadMore = document.getElementById('spaceLoadMore');
+        if (spaceLoadMore) {
+            const BATCH = 6;
+            const revealNext = () => {
+                const hidden = Array.from(spaceItems).filter(el => el.classList.contains('is-hidden'));
+                hidden.slice(0, BATCH).forEach(el => el.classList.remove('is-hidden'));
+                const remaining = hidden.length - Math.min(BATCH, hidden.length);
+                if (remaining <= 0) spaceLoadMore.hidden = true;
+            };
+            if (!Array.from(spaceItems).some(el => el.classList.contains('is-hidden'))) {
+                spaceLoadMore.hidden = true;
+            }
+            spaceLoadMore.addEventListener('click', revealNext);
+        }
         // ── End space masonry ────────────────────────────────────
 
         const nextImage = () => {

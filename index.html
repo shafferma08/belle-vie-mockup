@@ -17,6 +17,13 @@
         content="Experience organic luxury and holistic wellness at Westchase's premier Head Spa and Organic Salon.">
     <meta property="og:image" content="https://belleviehairspa.com/assets/img/optimized/BE032026-208-1600.jpg">
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Belle Vie Hair Spa | Luxury Head Spa & Organic Salon Tampa, FL">
+    <meta name="twitter:description" content="Experience organic luxury and holistic wellness at Westchase's premier Head Spa and Organic Salon.">
+    <meta name="twitter:image" content="https://belleviehairspa.com/assets/img/optimized/BE032026-208-1600.jpg">
+
+
     <!-- Schema.org / JSON-LD -->
     <script type="application/ld+json">
     {
@@ -173,8 +180,8 @@
 
                 <!-- Wellness -->
                 <div class="feature-row fade-in-section">
-                    <div class="feature-img" role="img" aria-label="Full-spectrum infrared sauna"
-                        style="background-image: url('assets/img/optimized/gallery/studio-sauna-front-1200.jpg');"></div>
+                    <div class="feature-img" role="img" aria-label="Infrared sauna and cold plunge side by side"
+                        style="background-image: url('assets/img/optimized/gallery/studio-sauna-plunge-1200.jpg');"></div>
                     <div class="feature-text">
                         <span class="eyebrow">Wellness</span>
                         <h3>Infrared Sauna &amp; Cold Plunge</h3>
@@ -202,31 +209,62 @@
                     restoration.
                 </p>
             </div>
-            <div class="space-masonry">
+            <div class="space-masonry" id="spaceGrid">
                 <div class="space-item" data-caption="Our Westchase Studio">
                     <img src="assets/img/optimized/gallery/front-of-building-1200.jpg"
                         alt="Belle Vie Hair Spa &amp; Wellness Center storefront in Westchase, Tampa" loading="lazy">
                 </div>
                 <div class="space-item" data-caption="The Lobby">
-                    <img src="assets/img/optimized/gallery/BE032026-184-1200.jpg"
-                        alt="Belle Vie lobby — sculptural botanical wall and dragonfly welcome sign" loading="lazy">
+                    <img src="assets/img/optimized/gallery/BE032026-185-1200.jpg"
+                        alt="Belle Vie lobby — reception desk, seating and dragonfly welcome wall" loading="lazy">
                 </div>
-                <div class="space-item" data-caption="Hair Spa Treatment Room">
-                    <img src="assets/img/optimized/gallery/BE032026-196-1200.jpg"
-                        alt="Private hair spa treatment room with shampoo bowl" loading="lazy">
+                <div class="space-item" data-caption="The Salon Floor">
+                    <img src="assets/img/optimized/gallery/BE032026-188-1200.jpg"
+                        alt="Belle Vie salon floor — styling station and shampoo area" loading="lazy">
                 </div>
-                <div class="space-item" data-caption="Organic Color Bar">
-                    <img src="assets/img/optimized/gallery/BE032026-193-1200.jpg"
-                        alt="Areté organic hair care products" loading="lazy">
+                <div class="space-item" data-caption="Head Spa Suite">
+                    <img src="assets/img/optimized/gallery/BE032026-198-1200.jpg"
+                        alt="Private head spa suite with treatment pod and styling mirror" loading="lazy">
                 </div>
-                <div class="space-item" data-caption="Infrared Sauna Suite">
-                    <img src="assets/img/optimized/gallery/studio-sauna-front-1200.jpg"
-                        alt="Full-spectrum infrared sauna interior" loading="lazy">
+                <div class="space-item" data-caption="Areté Retail Bar">
+                    <img src="assets/img/optimized/gallery/BE032026-191-1200.jpg"
+                        alt="Areté organic hair care retail display" loading="lazy">
                 </div>
                 <div class="space-item" data-caption="Cold Plunge Suite">
-                    <img src="assets/img/optimized/gallery/BE032026-210-1200.jpg"
-                        alt="Cold plunge contrast therapy tub" loading="lazy">
+                    <img src="assets/img/optimized/gallery/BE032026-212-1200.jpg"
+                        alt="Cold plunge tub with steam rising" loading="lazy">
                 </div>
+
+                <!-- Revealed by "Load More" -->
+                <div class="space-item is-hidden" data-caption="Reception">
+                    <img src="assets/img/optimized/gallery/BE032026-181-1200.jpg"
+                        alt="Belle Vie reception desk and entry" loading="lazy">
+                </div>
+                <div class="space-item is-hidden" data-caption="The Welcome Lounge">
+                    <img src="assets/img/optimized/gallery/BE032026-183-1200.jpg"
+                        alt="Belle Vie welcome lounge with velvet seating and water feature" loading="lazy">
+                </div>
+                <div class="space-item is-hidden" data-caption="The Dragonfly Wall">
+                    <img src="assets/img/optimized/gallery/BE032026-184-1200.jpg"
+                        alt="Belle Vie dragonfly emblem wall flanked by water features" loading="lazy">
+                </div>
+                <div class="space-item is-hidden" data-caption="The Wash Room">
+                    <img src="assets/img/optimized/gallery/BE032026-189-1200.jpg"
+                        alt="Shampoo bowls and styling chairs on the salon floor" loading="lazy">
+                </div>
+                <div class="space-item is-hidden" data-caption="Areté Apothecary">
+                    <img src="assets/img/optimized/gallery/BE032026-192-1200.jpg"
+                        alt="Areté organic product shelf and apothecary cabinet" loading="lazy">
+                </div>
+                <div class="space-item is-hidden" data-caption="Head Spa Suite II">
+                    <img src="assets/img/optimized/gallery/BE032026-194-1200.jpg"
+                        alt="Second head spa suite with treatment pod and sheer curtains" loading="lazy">
+                </div>
+            </div>
+
+            <div class="space-more-wrap">
+                <button type="button" class="btn btn-outline space-more-btn" id="spaceLoadMore"
+                    aria-controls="spaceGrid">Load More</button>
             </div>
 
         </div>
@@ -315,11 +353,13 @@
 
     <!-- Closing CTA -->
     <section class="cta-band section-padding fade-in-section"
-        style="background-image: url('assets/img/optimized/gallery/BE032026-2-1200.jpg');">
+        style="background-image: url('assets/img/optimized/hero/front-of-building-1600.jpg');">
         <div class="container">
             <span class="eyebrow">Westchase · Tampa</span>
             <h2>Come As You Are. Leave Renewed.</h2>
-            <p>Step into your sanctuary for organic hair care and holistic wellness.</p>
+            <p>13037 W. Linebaugh Ave, Tampa, FL 33626<br>
+                <strong>Hair Spa</strong> &nbsp;Tue–Fri 10–6 &nbsp;·&nbsp; Sat 10–3<br>
+                <strong>Wellness</strong> &nbsp;Mon 10–3 &nbsp;·&nbsp; Tue–Fri 10–4 &nbsp;·&nbsp; Sat 10–1</p>
             <a href="tel:8133696779" class="btn">Call to Book</a>
         </div>
     </section>
